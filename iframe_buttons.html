@@ -1,0 +1,72 @@
+<div class="btn-container">
+  <a href="#" class="btn btn-01">
+    <span class="small">いい求人があれば</span>
+    <span class="large">すぐ転職したい</span>
+  </a>
+
+  <a href="#" class="btn btn-02">
+    <span class="small">まずは</span>
+    <span class="large">情報収集したい</span>
+  </a>
+</div>
+
+<style>
+.btn-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 223px;
+  height: 56px;
+  background: #2465BB;
+  border: 2px solid #698EC3;
+  box-shadow: 0px 4px 0px rgba(191, 191, 191, 0.85);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn .small {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #004093;
+}
+
+.btn .large {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #004093;
+  margin-top: 2px;
+}
+</style>
+
+<script>
+  // 遷移先のベースURL
+  const baseUrl = "https://lp.hitocareer.com/list_form03";
+
+  // iframe 自身の URL に付与されたクエリを取得（Studio側で ?{{url_params}} を渡す想定）
+  const query = window.location.search; // 例: ?utm_source=google&utm_medium=cpc
+
+  // ボタンにクリックイベント付与
+  document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      // 親ウィンドウごと遷移
+      window.top.location.href = baseUrl + query;
+    });
+  });
+</script>
