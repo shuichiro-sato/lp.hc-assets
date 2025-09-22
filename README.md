@@ -1,2 +1,2 @@
-# lp.hc-assets-iframe_buttons.html
+# lp.hc-assets
 ひとキャリform2のアセット
