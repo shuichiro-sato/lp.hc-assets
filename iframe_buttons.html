@@ -44,22 +44,19 @@ html, body {
   cursor: pointer;
 }
 
-/* モバイル用（幅500px以下） */
-@media (max-width: 500px) {
+/* モバイル時（480px以下） */
+@media (max-width: 480px) {
   .btn-container {
-  display: flex;
-  justify-content: center;   /* 横中央 */
-  align-items: center;       /* 縦中央 */
-  gap: 10px;
-  height: 100%;              /* ← 親要素の高さを基準にする */
-  min-height:60px;         /* ボタンが潰れないように最低限の高さ */
-  box-sizing: border-box;
-}
-  .btn {
-    height: 35 px;   /* ← モバイル時に固定高さを60pxに */
+    height: 60px;            /* モバイルは高さを60pxに */
+    gap: 12px;               /* 余裕を見てギャップも調整 */
   }
-  
+
+  .btn {
+    height: 60px;            /* モバイル用のボタン高さ */
+    width: 45%;              /* 横並び維持用に縮小 */
+  }
 }
+
 
 
 .btn .small {
