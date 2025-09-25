@@ -64,45 +64,13 @@ html, body {
 
 /* モバイル（横並びのまま完全に60pxに収める） */
 @media (max-width: 480px) {
-
-  /* iOS の勝手な文字拡大対策（高さずれ防止） */
-  html, body {
-    height: 60px;          /* iframeが60pxなら中身も60pxに合わせる */
-    overflow: hidden;      /* スクロール抑止 */
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    margin: 0;
-  }
-
-  .btn-container {
-    height: 60px;          /* コンテナ固定 */
-    min-height: 60px;
-    padding: 0;
-    margin: 0;
-    gap: 12px;             /* モバイルの間隔は少しだけ */
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn {
-    height: 60px;          /* ボタン固定 */
-    width: 45%;            /* 横並びで2つ入るように */
-    border-width: 2px;     /* border-boxなので総高さ60pxに収まる */
-    box-shadow: none;      /* 影で視覚的に溢れて見える場合はオフ */
-  }
-
-  /* 文字を確実に60px内に収めるためにサイズ/行間/余白を詰める */
-  .btn .small {
-    font-size: 11px;
-    line-height: 1;        /* 行間詰め */
-    margin: 0;
-  }
-  .btn .large {
-    font-size: 14px;
-    line-height: 1;        /* 行間詰め */
-    margin: 2px 0 0;       /* 最小限の間隔 */
-  }
+  html, body { height: 72px; margin: 0; overflow: hidden; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  .btn-container { height: 60px; min-height: 60px; padding: 0; margin: 0; gap: 12px; display:flex; align-items:center; justify-content:center; }
+  .btn { height: 60px; width: 45%; border-width: 2px; box-shadow: none; }
+  .btn .small { font-size: 11px; line-height: 1; margin: 0; }
+  .btn .large { font-size: 14px; line-height: 1; margin: 2px 0 0; }
 }
+
 
 </style>
 
