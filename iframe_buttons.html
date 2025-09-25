@@ -35,13 +35,20 @@ html, body {
   align-items: center;
 
   width: 223px;
-  height: 56px;   /* ← 固定に戻す */
+  height: 56px;   /* PCデフォルト */
   background: #2465BB;
   border: 2px solid #698EC3;
   box-shadow: 0px 4px 0px rgba(191, 191, 191, 0.85);
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* モバイル用（幅500px以下） */
+@media (max-width: 500px) {
+  .btn {
+    height: 60px;   /* ← モバイル時に固定高さを60pxに */
+  }
 }
 
 
