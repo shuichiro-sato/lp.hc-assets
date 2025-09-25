@@ -11,13 +11,20 @@
 </div>
 
 <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .btn-container {
   display: flex;
   justify-content: center;   /* 横方向の中央揃え */
   align-items: center;       /* 縦方向の中央揃え */
   gap: 20px;                 /* ボタン間の間隔 */
-  height: 100%;              /* 親要素の高さに応じて縦中央に */
+  min-height: 100px;         /* ←高さを確保してボタンが見切れないようにする */
+  box-sizing: border-box;
 }
+
 
 .btn {
   display: flex;
