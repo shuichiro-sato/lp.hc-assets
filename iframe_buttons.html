@@ -18,12 +18,14 @@ html, body {
 
 .btn-container {
   display: flex;
-  justify-content: center;   /* 横方向の中央揃え */
-  align-items: center;       /* 縦方向の中央揃え */
-  gap: 20px;                 /* ボタン間の間隔 */
-  min-height: 100px;         /* ←高さを確保してボタンが見切れないようにする */
+  justify-content: center;   /* 横中央 */
+  align-items: center;       /* 縦中央 */
+  gap: 20px;
+  height: 100%;              /* ← 親要素の高さを基準にする */
+  min-height: 120px;         /* ボタンが潰れないように最低限の高さ */
   box-sizing: border-box;
 }
+
 
 
 .btn {
@@ -33,7 +35,7 @@ html, body {
   align-items: center;
 
   width: 223px;
-  height: 100%;
+  height: 56px;   /* ← 固定に戻す */
   background: #2465BB;
   border: 2px solid #698EC3;
   box-shadow: 0px 4px 0px rgba(191, 191, 191, 0.85);
@@ -41,6 +43,7 @@ html, body {
   text-decoration: none;
   cursor: pointer;
 }
+
 
 .btn .small {
   font-family: 'Noto Sans JP', sans-serif;
