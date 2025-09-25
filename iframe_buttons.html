@@ -11,22 +11,20 @@
 </div>
 
 <style>
+/* デフォルト（PC） */
 html, body {
   height: 100%;
   margin: 0;
 }
+* { box-sizing: border-box; }
 
 .btn-container {
   display: flex;
-  justify-content: center;   /* 横中央 */
-  align-items: center;       /* 縦中央 */
-  gap: 20px;
-  height: 100%;              /* ← 親要素の高さを基準にする */
-  min-height: 120px;         /* ボタンが潰れないように最低限の高さ */
-  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;       /* PCは20px */
+  height: 120px;   /* PC用 */
 }
-
-
 
 .btn {
   display: flex;
@@ -35,7 +33,7 @@ html, body {
   align-items: center;
 
   width: 223px;
-  height: 56px;   /* PCデフォルト */
+  height: 56px;    /* PC用 */
   background: #2465BB;
   border: 2px solid #698EC3;
   box-shadow: 0px 4px 0px rgba(191, 191, 191, 0.85);
@@ -44,21 +42,6 @@ html, body {
   cursor: pointer;
 }
 
-/* モバイル時（480px以下） */
-@media (max-width: 480px) {
-  .btn-container {
-    height: 60px;            /* モバイルは高さを60pxに */
-    gap: 12px;               /* 余裕を見てギャップも調整 */
-  }
-
-  .btn {
-    height: 60px;            /* モバイル用のボタン高さ */
-    width: 45%;              /* 横並び維持用に縮小 */
-  }
-}
-
-
-
 .btn .small {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
@@ -66,6 +49,7 @@ html, body {
   line-height: 14px;
   color: #FFFFFF;
   text-shadow: 2px 2px 0px #004093;
+  margin: 0;
 }
 
 .btn .large {
@@ -75,8 +59,51 @@ html, body {
   line-height: 19px;
   color: #FFFFFF;
   text-shadow: 2px 2px 0px #004093;
-  margin-top: 2px;
+  margin: 2px 0 0; /* 上だけ少し */
 }
+
+/* モバイル（横並びのまま完全に60pxに収める） */
+@media (max-width: 480px) {
+
+  /* iOS の勝手な文字拡大対策（高さずれ防止） */
+  html, body {
+    height: 60px;          /* iframeが60pxなら中身も60pxに合わせる */
+    overflow: hidden;      /* スクロール抑止 */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    margin: 0;
+  }
+
+  .btn-container {
+    height: 60px;          /* コンテナ固定 */
+    min-height: 60px;
+    padding: 0;
+    margin: 0;
+    gap: 12px;             /* モバイルの間隔は少しだけ */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    height: 60px;          /* ボタン固定 */
+    width: 45%;            /* 横並びで2つ入るように */
+    border-width: 2px;     /* border-boxなので総高さ60pxに収まる */
+    box-shadow: none;      /* 影で視覚的に溢れて見える場合はオフ */
+  }
+
+  /* 文字を確実に60px内に収めるためにサイズ/行間/余白を詰める */
+  .btn .small {
+    font-size: 11px;
+    line-height: 1;        /* 行間詰め */
+    margin: 0;
+  }
+  .btn .large {
+    font-size: 14px;
+    line-height: 1;        /* 行間詰め */
+    margin: 2px 0 0;       /* 最小限の間隔 */
+  }
+}
+
 </style>
 
 <script>
